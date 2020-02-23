@@ -1,0 +1,223 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <import type="android.view.View"/>
+
+<variable
+    name="viewModel"
+    type="com.example.jinliyu.ymlandroidchallenge.viewModel.DetailActivityViewModel" />
+</data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/detail_margin_bottom"
+            android:background="@color/black"
+            android:paddingBottom="@dimen/detail_padding_bottom">
+
+            <com.example.jinliyu.ymlandroidchallenge.customViewClass.RoundedImageView
+                android:id="@+id/user_detail_image"
+                android:layout_width="@dimen/detail_avatar_dimen"
+                android:layout_height="@dimen/detail_avatar_dimen"
+                android:layout_marginTop="@dimen/avatar_margin_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/detail_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.userName}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/username_font_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_detail_image"
+                tools:text="abc" />
+
+            <TextView
+                android:id="@+id/detail_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="@dimen/padding_40dp"
+                android:paddingEnd="@dimen/padding_40dp"
+                android:text="@{viewModel.bio}"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_username"
+                tools:text="Hi! Nice to meet you!" />
+
+            <LinearLayout
+                android:id="@+id/follower_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/follower_margin_start"
+                android:layout_marginTop="@dimen/follower_margin_top"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_bio">
+
+                <TextView
+                    android:id="@+id/detail_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.followers}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/detail_font_size_large"
+                    android:textStyle="bold"
+                    tools:text="133" />
+
+                <TextView
+                    android:id="@+id/detail_follower_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/followers"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/following_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_margin_start"
+                android:layout_marginTop="@dimen/detail_margin_10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/follower_layout"
+                app:layout_constraintTop_toBottomOf="@+id/detail_bio">
+
+                <TextView
+                    android:id="@+id/detail_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.following}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/detail_font_size_large"
+                    android:textStyle="bold"
+                    tools:text="90" />
+
+                <TextView
+                    android:id="@+id/detail_following_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/following"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_margin_start"
+                android:layout_marginTop="@dimen/detail_margin_10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/following_layout"
+                app:layout_constraintTop_toBottomOf="@+id/detail_bio">
+
+                <TextView
+                    android:id="@+id/detail_repository"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.repositories}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/detail_font_size_large"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/detail_following"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_bio"
+                    tools:text="10" />
+
+                <TextView
+                    android:id="@+id/detail_repository_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repositories"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/detail_margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="@{viewModel.showEmail? View.VISIBLE: View.GONE}">
+
+            <ImageView
+                android:id="@+id/email_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/icon_margin_start"
+                android:src="@drawable/ic_email_black_24dp"/>
+
+            <TextView
+                android:id="@+id/detail_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_margin_8dp"
+                android:text="@{viewModel.email}"
+                android:textSize="@dimen/detail_font_size"
+                tools:text="jinliyu@gmail.com"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/detail_margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="@{viewModel.showLocation? View.VISIBLE: View.GONE}">
+
+            <ImageView
+                android:id="@+id/location_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/icon_margin_start"
+                android:src="@drawable/ic_location_on_black_24dp" />
+
+            <TextView
+                android:id="@+id/detail_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_margin_8dp"
+                android:text="@{viewModel.location}"
+                android:textSize="@dimen/detail_font_size"
+                tools:text="San Francisco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/detail_margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="@{viewModel.showCompany? View.VISIBLE: View.GONE}">
+
+            <ImageView
+                android:id="@+id/company_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/icon_margin_start"
+                android:src="@drawable/ic_business_center_black_24dp" />
+
+            <TextView
+                android:id="@+id/detail_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_margin_8dp"
+                android:text="@{viewModel.company}"
+                android:textSize="@dimen/detail_font_size"
+                tools:text="Yelp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

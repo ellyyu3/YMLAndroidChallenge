@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">YMLAndroidChallenge</string>
+    <string name="user_item_layout">user item layout</string>
+    <string name="search">Search</string>
+    <string name="input_username">Input Username</string>
+    <string name="start_message">Check your Github followers! \n Enter your username</string>
+    <string name="followers">FOLLOWERS</string>
+    <string name="following">FOLLOWING</string>
+    <string name="repositories">REPOSITORIES</string>
+</resources>
