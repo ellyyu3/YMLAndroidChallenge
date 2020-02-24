@@ -21,7 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String userName = getIntent().getExtras().getString(KEY_USER_NAME);
+        String userName = getIntent().getExtras().getString(KEY_USER_NAME, "");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
         DetailActivityViewModel viewModel = new DetailActivityViewModel();
         binding.setViewModel(viewModel);

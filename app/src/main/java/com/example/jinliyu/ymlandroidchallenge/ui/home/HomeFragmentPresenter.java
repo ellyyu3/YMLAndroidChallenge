@@ -25,7 +25,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.IPresenter{
         this.homeFragment = homeFragment;
     }
     @Override
-    public void getFollowersCall(String userName) {
+    public void getFollowersCall(@NonNull String userName) {
         Observable<List<User>> followersObservable = gitHubUsersApi.getFollowersByUsername(userName);
         disposables.add(followersObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

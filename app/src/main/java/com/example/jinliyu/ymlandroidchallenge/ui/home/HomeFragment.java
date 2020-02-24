@@ -23,13 +23,14 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.IView
     @NonNull private List<User> followerList = Collections.emptyList();
     private HomeFragmentContract.IPresenter presenter;
     private final static String KEY_USER_NAME = "userName";
-    private String userName = "";
+    @NonNull private String userName = "";
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
         if (bundle != null) {
-            userName = bundle.getString(KEY_USER_NAME);
+            userName = bundle.getString(KEY_USER_NAME, "");
         }
     }
 

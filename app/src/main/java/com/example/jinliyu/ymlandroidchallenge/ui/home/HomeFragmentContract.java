@@ -1,5 +1,7 @@
 package com.example.jinliyu.ymlandroidchallenge.ui.home;
 
+import android.support.annotation.NonNull;
+
 import com.example.jinliyu.ymlandroidchallenge.model.User;
 
 import java.util.List;
@@ -10,7 +12,7 @@ public interface HomeFragmentContract {
     }
 
     interface IPresenter {
-        void getFollowersCall(String userName);
+        void getFollowersCall(@NonNull String userName);
         void unsubscribeAll();
     }
 }
