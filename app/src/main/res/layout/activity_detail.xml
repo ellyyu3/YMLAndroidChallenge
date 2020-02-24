@@ -6,7 +6,7 @@
 
 <variable
     name="viewModel"
-    type="com.example.jinliyu.ymlandroidchallenge.viewModel.DetailActivityViewModel" />
+    type="com.example.jinliyu.ymlandroidchallenge.ui.DetailActivityViewModel" />
 </data>
 
     <LinearLayout
